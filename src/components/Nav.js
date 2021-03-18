@@ -10,7 +10,6 @@ function Nav() {
       <li>Brushes</li>
       <li>Skin</li>
       <li>Kids' fashion</li>
-      <li>Maison</li>
     </nav>
   );
 }
