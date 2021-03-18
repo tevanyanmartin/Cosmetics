@@ -2,13 +2,13 @@ import "./styles.css";
 
 function Nav() {
   return (
-    <nav>
+    <nav className="nav">
       <li>HOME</li>
-      <li>Խանութ սրահ</li>
-      <li>Best sellers</li>
-      <li>New</li>
-      <li>Sale</li>
-      <li>gifs</li>
+      <li>Lips</li>
+      <li>Face</li>
+      <li>Eyes</li>
+      <li>Brushes</li>
+      <li>Skin</li>
       <li>Kids' fashion</li>
       <li>Maison</li>
     </nav>

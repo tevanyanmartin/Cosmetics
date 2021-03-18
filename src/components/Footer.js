@@ -1,4 +1,7 @@
 import "./styles.css";
+import faceLogo from "../Pics/facebook-circular-logo.png";
+import instaLogo from "../Pics/instagram.png";
+import youtubeLogo from "../Pics/youtube.png";
 
 function Footer() {
   return (
@@ -15,11 +18,23 @@ function Footer() {
         </ul>
       </div>
       <div className="footer2">
-        <h3>Մենք Սոց կայքերում</h3>
+        <h3>CONNECT</h3>
         <ul>
-          <li className="apr">Instagram</li>
-          <li className="apr">Facebook</li>
-          <li className="apr">Youtube</li>
+          <li className="apr">
+            <a href="https://www.google.com/" target="_blank">
+               <img src={instaLogo} className="logos" />
+            </a>{" "}
+          </li>
+          <li className="apr">
+            <a href="https://www.google.com/" target="_blank">
+               <img src={faceLogo} className="logos" />
+            </a>
+          </li>
+          <li className="apr">
+            <a href="https://www.google.com/" target="_blank">
+              <img src={youtubeLogo} className="logos" />
+            </a>
+          </li>
         </ul>
       </div>
     </footer>
