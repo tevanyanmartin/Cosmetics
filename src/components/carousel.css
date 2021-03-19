@@ -1,0 +1,9 @@
+.App {
+    font-family: sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    height: 200px;
+    width: 200px;
+  }
