@@ -1,7 +1,8 @@
-import "./styles.css";
-import faceLogo from "../Pics/facebook-circular-logo.png";
-import instaLogo from "../Pics/instagram.png";
-import youtubeLogo from "../Pics/youtube.png";
+import "../../styles.css";
+import faceLogo from "../../Pics/facebook-circular-logo.png";
+
+import instaLogo from "../../Pics/instagram.png";
+import youtubeLogo from "../../Pics/youtube.png";
 
 function Footer() {
   return (
@@ -22,12 +23,12 @@ function Footer() {
         <ul>
           <li className="apr">
             <a href="https://www.google.com/" target="_blank">
-               <img src={instaLogo} className="logos" />
+              <img src={instaLogo} className="logos" />
             </a>{" "}
           </li>
           <li className="apr">
             <a href="https://www.google.com/" target="_blank">
-               <img src={faceLogo} className="logos" />
+              <img src={faceLogo} className="logos" />
             </a>
           </li>
           <li className="apr">

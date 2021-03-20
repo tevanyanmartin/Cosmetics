@@ -1,18 +1,47 @@
-import Footer from "./components/Footer";
-import Header from "./components/Header";
-import Main from "./components/Main";
-import Nav from "./components/Nav";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import New from "./Nav/New";
+import Lips from "./Nav/Lips";
+import Face from "./Nav/Face";
+import Eyes from "./Nav/Eyes";
+import Brushes from "./Nav/Brushes";
+import Skin from "./Nav/Skin";
+import BestSellers from "./Nav/BestSellers";
 
+import Nav from "./mainPage/components/Nav";
+import Main from "./mainPage/components/Main";
 
 export default function App() {
   return (
     <>
-      <Header />
-      <Nav />
-      <div style={{ display: "flex" }}>
-        <Main />
-      </div>
-      <Footer />
+      <Router>
+        <Nav />
+        <Switch>
+          <Route path="/new">
+            <New />
+          </Route>
+          <Route path="/lips">
+            <Lips />
+          </Route>
+          <Route path="/face">
+            <Face />
+          </Route>
+          <Route path="/eyes">
+            <Eyes />
+          </Route>
+          <Route path="/brushes">
+            <Brushes />
+          </Route>
+          <Route path="/skin">
+            <Skin />
+          </Route>
+          <Route path="/bestSellers">
+            <BestSellers />
+          </Route>
+          <Route path="/">
+            <Main />
+          </Route>
+        </Switch>
+      </Router>
     </>
   );
 }
