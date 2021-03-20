@@ -54,25 +54,6 @@ p:hover {
 #mainPicture > h3 {
   padding-left: 40px;
 }
-
-footer {
-  background: rgb(224, 224, 224);
-  height: 220px;
-  display: flex;
-  justify-content: center;
-}
-
-footer > .apr {
-  overflow: hidden;
-  font-size: 16px;
-  width: 150px;
-  text-transform: uppercase;
-  text-align: center;
-}
-.footer1 {
-  margin-right: 200px;
-}
-
 .logos {
   height: 30px;
   width: 30px;
@@ -99,93 +80,12 @@ span {
   color: black;
 }
 
-/* carousel style */
-#picture {
-  height: 180px;
-  background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQXWYXr7W-PK8x7gq8SZszdiSZdwCEBEWIMcA&usqp=CAU");
-  background-repeat: repeat-x;
-}
-nav {
-  justify-content: center;
-  height: 70px;
-  display: flex;
-}
-nav > li {
-  background-color: rgb(224, 224, 224);
-  list-style: none;
-  margin: 5px;
-  padding: 19px;
-  font-size: 15px;
-  border: 2px solid #292929;
-  width: 150px;
-  text-transform: uppercase;
-  text-align: center;
-  height: 12px;
-  font-weight: bold;
-}
-nav > li:hover {
-  background-color: rgb(255, 246, 246);
-  font-size: 14px;
-}
-
-aside {
-  width: 20%;
-  min-height: 950px;
-}
-#asideLeft {
-  background: #f3d7d3;
-  text-transform: uppercase;
-}
-#asideRight {
-  background: #f3d7d3;
-  text-transform: uppercase;
-}
-.item {
-  margin-left: 25%;
-  color: #b16d5a;
-}
-.item:hover {
-  opacity: 0.6;
-}
-main {
-  background: #f5e5ce;
-  min-height: 950px;
-  width: 100%;
-}
-main > h1 {
-  text-align: center;
-  color: black;
-  font-family: none;
-}
-main > h3 {
-  text-align: center;
-  color: black;
-  font-family: none;
-}
-
 footer {
-  background: rgb(224, 224, 224);
-  height: 220px;
-  display: flex;
-  justify-content: center;
+  background: #292929;
 }
 
-footer > .apr {
-  overflow: hidden;
-  font-size: 16px;
-  width: 150px;
-  text-transform: uppercase;
-  text-align: center;
-}
-.footer1 {
-  margin-right: 200px;
-}
-/* .apr:hover {
-    opacity: 0.7;
-    text-decoration: underline; */
-.logos {
-  height: 30px;
-  width: 30px;
-  padding-top: 3px;
-  /* float: right; */
+.footerItem {
+  color: white;
+  list-style: none;
+  font-size: 20px;
 }

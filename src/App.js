@@ -9,6 +9,7 @@ import BestSellers from "./Nav/BestSellers";
 
 import Nav from "./mainPage/components/Nav";
 import Main from "./mainPage/components/Main";
+import Footer from "./mainPage/components/Footer";
 
 export default function App() {
   return (
@@ -41,6 +42,7 @@ export default function App() {
             <Main />
           </Route>
         </Switch>
+        <Footer />
       </Router>
     </>
   );
