@@ -1,3 +1,13 @@
+#newPic {
+  margin: 10px;
+  margin-top: 40px;
+  background: url("https://cdn3.vectorstock.com/i/1000x1000/70/27/new-tag-grainy-texture-icon-vector-11737027.jpg");
+  background-position: 50% 40%;
+  height: 300px;
+  width: 800px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 #MacCosmetics {
   margin: 10px;
   margin-top: 70px;
@@ -39,7 +49,8 @@
 #KKWCosmetics {
   margin: 10px;
   margin-top: 70px;
-  background: url("https://ugc.reveliststatic.com/gen/constrain/640/640/80/2018/03/13/11/6t/mi/ph4o4pt3k82qbwe.jpg");
+  background: url("https://image-cdn.hypb.st/https%3A%2F%2Fhypebeast.com%2Fwp-content%2Fblogs.dir%2F6%2Ffiles%2F2018%2F11%2Fkim-kardashian-kkw-beauty-glam-bible-smokey-volume-1-makeup-collection-holiday-0-1.jpg?q=75&w=800&cbr=1&fit=max");
+  background-position: 30% 40%;
   height: 500px;
   width: 500px;
   background-size: cover;
@@ -57,7 +68,7 @@
 }
 #KylieCosmetics {
   margin: 10px;
-  background: url("https://media.allure.com/photos/5c48a9fe2cab492d0efe83bc/master/w_1600%2Cc_limit/Kylie%252520New%252520Collection.jpg");
+  background: url("https://metro.co.uk/wp-content/uploads/2019/02/kylie-comp-c1ac.jpg?quality=90&strip=all");
   height: 500px;
   width: 500px;
   background-size: cover;

@@ -27,6 +27,9 @@ function Nav() {
       <Link to="/bestSellers">
         <p>BEST-SELLERS</p>
       </Link>
+      <Link to="/brands">
+        <p>Brands</p>
+      </Link>
     </nav>
   );
 }

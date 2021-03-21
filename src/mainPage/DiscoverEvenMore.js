@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Eyes from "../Nav/Eyes";
 import Face from "../Nav/Face";
 import Lips from "../Nav/Lips";
+
 function DiscoverEvenMore() {
   return (
     <Router>

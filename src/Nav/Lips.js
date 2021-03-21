@@ -1,8 +1,9 @@
 function Lips() {
   return (
-    <>
-      <h1>This is Lips</h1>
-    </>
+    <div style={{ background: "white" }}>
+      <h1>fjg</h1>
+      <h1 style={{ marginTop: "50px" }}>This is Lips</h1>
+    </div>
   );
 }
 export default Lips;
