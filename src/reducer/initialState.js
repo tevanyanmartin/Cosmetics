@@ -1,6 +1,6 @@
 const initialState = {
-    fireStore : null ,
-    firebaseAuth : null
-}
+  fireStore: null,
+  firebaseAuth: null
+};
 
-export default initialState
+export default initialState;

@@ -6,10 +6,11 @@ import Eyes from "./Nav/Eyes";
 import Brushes from "./Nav/Brushes";
 import Skin from "./Nav/Skin";
 import BestSellers from "./Nav/BestSellers";
+import Brands from "./Nav/Brands";
 
 import Nav from "./mainPage/components/Nav";
-import Brands from "./Nav/Brands"
 import Main from "./mainPage/components/Main";
+import Footer from "./mainPage/components/Footer";
 import Login from "./Nav/Login/Login";
 // import Form from "./Nav/Login/LoginInput";
 
@@ -40,16 +41,17 @@ export default function App() {
           <Route path="/bestSellers">
             <BestSellers />
           </Route>
+          <Route path="/brands">
+            <Brands />
+          </Route>
           <Route path="/">
             <Main />
           </Route>
           <Route path="/login">
             <Login />
           </Route>
-          <Route path="/brands">
-            <Brands />
-          </Route>
         </Switch>
+        <Footer />
       </Router>
     </>
   );

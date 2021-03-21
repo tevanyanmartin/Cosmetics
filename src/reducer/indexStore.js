@@ -6,8 +6,8 @@ import reducer from "../reducer/reducer";
 // const logger = createLogger();
 
 const store = createStore(
-  reducer,
-//   composeWithDevTools(applyMiddleware(logger))
-); 
+  reducer
+  //   composeWithDevTools(applyMiddleware(logger))
+);
 
 export default store;
