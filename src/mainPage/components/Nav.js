@@ -28,10 +28,8 @@ function Nav() {
       <Link to="/bestSellers">
         <p>BEST-SELLERS</p>
       </Link>
-      <Link to="/login">
-        <div id="navLogIn" >
-          O
-        </div>
+      <Link to="/brands">
+        <p>Brands</p>
       </Link>
     </nav>
   );
