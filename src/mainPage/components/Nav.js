@@ -2,6 +2,7 @@ import "../../styles.css";
 import React from "react";
 import { Link } from "react-router-dom";
 
+
 function Nav() {
   return (
     <nav className="nav">
@@ -26,6 +27,11 @@ function Nav() {
       </Link>
       <Link to="/bestSellers">
         <p>BEST-SELLERS</p>
+      </Link>
+      <Link to="/login">
+        <div id="navLogIn" >
+          O
+        </div>
       </Link>
     </nav>
   );

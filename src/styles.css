@@ -55,12 +55,6 @@ p:hover {
   padding-left: 40px;
 }
 
-footer {
-  background: rgb(224, 224, 224);
-  height: 220px;
-  display: flex;
-  justify-content: center;
-}
 
 footer > .apr {
   overflow: hidden;
@@ -71,6 +65,7 @@ footer > .apr {
 }
 .footer1 {
   margin-right: 200px;
+  
 }
 
 .logos {
@@ -128,6 +123,11 @@ nav > li:hover {
   font-size: 14px;
 }
 
+#navLogIn {
+  height: 50px;
+  width: 50px;
+}
+
 aside {
   width: 20%;
   min-height: 950px;
@@ -164,7 +164,7 @@ main > h3 {
 }
 
 footer {
-  background: rgb(224, 224, 224);
+  background: rgb(255, 255, 255);
   height: 220px;
   display: flex;
   justify-content: center;

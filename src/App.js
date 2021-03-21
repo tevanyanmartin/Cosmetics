@@ -9,6 +9,8 @@ import BestSellers from "./Nav/BestSellers";
 
 import Nav from "./mainPage/components/Nav";
 import Main from "./mainPage/components/Main";
+import Login from "./Nav/Login/Login";
+import Form from "./Nav/Login/LoginInput";
 
 export default function App() {
   return (
@@ -39,6 +41,9 @@ export default function App() {
           </Route>
           <Route path="/">
             <Main />
+          </Route>
+          <Route path="/login">
+            <Login />
           </Route>
         </Switch>
       </Router>
