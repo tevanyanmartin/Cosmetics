@@ -44,11 +44,11 @@ export default function App() {
           <Route path="/brands">
             <Brands />
           </Route>
-          <Route path="/">
-            <Main />
-          </Route>
           <Route path="/login">
             <Login />
+          </Route>
+          <Route path="/">
+            <Main />
           </Route>
         </Switch>
         <Footer />

@@ -1,6 +1,21 @@
 import React from "react";
 import Form from "../Login/LoginInput";
 import Main from "../../mainPage/components/Main";
+import { auth } from "../..";
+
+// firebase
+//   .auth()
+//   .createUserWithEmailAndPassword(email, password)
+//   .then((userCredential) => {
+//     // Signed in
+//     var user = userCredential.user;
+//     // ...
+//   })
+//   .catch((error) => {
+//     var errorCode = error.code;
+//     var errorMessage = error.message;
+//     // ..
+//   });
 
 class Login extends React.Component {
   constructor(props) {
@@ -8,38 +23,80 @@ class Login extends React.Component {
     this.state = {
       email: "",
       password: "",
-      status: " "
+      status: " ",
+      loggedInUser: null,
+      signUpEmail: "",
+      signUpPassword: "",
     };
   }
   handleEmail = (e) => {
     this.setState({
-      email: e.target.value
+      email: e.target.value,
+    });
+  };
+  handleSignUpEmail = (e) => {
+    this.setState({
+      signUpEmail: e.target.value,
     });
   };
 
   handlePassword = (e) => {
     this.setState({
-      password: e.target.value
+      password: e.target.value,
+    });
+  };
+  handleSignUpPassword = (e) => {
+    this.setState({
+      signUpPassword: e.target.value,
     });
   };
 
-  handleLogin = () => {
-    if (this.state.email === "kkk" && this.state.password === "111") {
-      this.setState({
-        status: "succeeded"
+  handleLogin = (e) => {
+    e.preventDefault();
+    const { email, password } = this.state;
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        this.setState({
+            loggedInUser: user,
+            status: "succeeded"
+          });
+        // ...
+      })
+      .catch((error) => {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        console.log(errorCode)
+        console.log(errorMessage)
       });
-    } else {
-      this.setState({
-        status: "failed"
-      });
-    }
   };
+
+
+  onSignupBtnClick = (e) => {
+    e.preventDefault();
+    const { signUpEmail: email, signUpPassword: password } = this.state;
+    auth
+      .createUserWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        this.setState({
+          loggedInUser: user,
+          status: "succeeded"
+        });
+        // ...
+      })
+      .catch((error) => {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // ..
+      });
+  };
+
   logout = () => {
-    this.setState({
-      status: "",
-      email: "",
-      password: ""
-    });
+    auth.logout()
   };
   render() {
     if (this.state.status === "succeeded") {
@@ -48,11 +105,18 @@ class Login extends React.Component {
     return (
       <Form
         email={this.state.email}
+        signUpEmail={this.state.signUpEmail}
         password={this.state.password}
+        signUpPassword={this.state.signUpPassword}
         status={this.state.status}
         handleEmail={this.handleEmail}
         handlePassword={this.handlePassword}
         handleLogin={this.handleLogin}
+        onSignupBtnClick={this.onSignupBtnClick}
+        handleSignUpEmail={this.handleSignUpEmail}
+        handleSignUpPassword={this.handleSignUpPassword}
+        loggedInUser={this.state.loggedInUser}
+        logout={this.logout}
       />
     );
   }

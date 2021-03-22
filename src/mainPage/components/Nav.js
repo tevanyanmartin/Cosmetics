@@ -30,6 +30,9 @@ function Nav() {
       <Link to="/brands">
         <p>Brands</p>
       </Link>
+      <Link to="/login">
+        <div id="loginLogo">O</div>
+      </Link>
     </nav>
   );
 }
