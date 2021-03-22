@@ -103,8 +103,8 @@ class Login extends React.Component {
   render() {
     if (this.state.status === "succeeded") {
       return (
-          <div logout={this.logout}> 
-          <Nav  email={this.state.email}/>,
+          <div > 
+          <Nav  email={this.state.email} logout={this.logout}/>,
           <Main  />,
           <Footer />
           </div>
