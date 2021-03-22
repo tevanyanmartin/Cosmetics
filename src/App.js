@@ -18,40 +18,56 @@ export default function App() {
   return (
     <>
       <Router>
-        <Nav />
         <Switch>
           <Route path="/new">
+            <Nav />
             <New />
+            <Footer />
           </Route>
           <Route path="/lips">
+            <Nav />
             <Lips />
+            <Footer />
           </Route>
           <Route path="/face">
+            <Nav />
             <Face />
+            <Footer />
           </Route>
           <Route path="/eyes">
+            <Nav />
             <Eyes />
+            <Footer />
           </Route>
           <Route path="/brushes">
+            <Nav />
             <Brushes />
+            <Footer />
           </Route>
           <Route path="/skin">
+            <Nav />
             <Skin />
+            <Footer />
           </Route>
           <Route path="/bestSellers">
+            <Nav />
             <BestSellers />
+            <Footer />
           </Route>
           <Route path="/brands">
+            <Nav />
             <Brands />
+            <Footer />
           </Route>
           <Route path="/login">
             <Login />
           </Route>
           <Route path="/">
+            <Nav />
             <Main />
+            <Footer />
           </Route>
         </Switch>
-        <Footer />
       </Router>
     </>
   );

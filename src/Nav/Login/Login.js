@@ -2,6 +2,8 @@ import React from "react";
 import Form from "../Login/LoginInput";
 import Main from "../../mainPage/components/Main";
 import { auth } from "../..";
+import Nav from "../../mainPage/components/Nav";
+import Footer from "../../mainPage/components/Footer";
 
 // firebase
 //   .auth()
@@ -100,7 +102,13 @@ class Login extends React.Component {
   };
   render() {
     if (this.state.status === "succeeded") {
-      return <Main logout={this.logout} />;
+      return (
+          <div logout={this.logout}> 
+          <Nav  email={this.state.email}/>,
+          <Main  />,
+          <Footer />
+          </div>
+      );
     }
     return (
       <Form

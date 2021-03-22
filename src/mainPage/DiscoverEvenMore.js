@@ -60,7 +60,6 @@ function DiscoverEvenMore() {
           </Link>
         </div>
       </div>
-
       <Switch>
         <Route path="/lips">
           <Lips />

@@ -2,7 +2,8 @@ import "../../styles.css";
 import React from "react";
 import { Link } from "react-router-dom";
 
-function Nav() {
+function Nav(props) {
+  const {email} = props
   return (
     <nav className="nav">
       <Link to="/" id="logo"></Link>
@@ -33,6 +34,8 @@ function Nav() {
       <Link to="/login">
         <div id="loginLogo">O</div>
       </Link>
+
+      <div id="loginName">name {email}</div>
     </nav>
   );
 }
