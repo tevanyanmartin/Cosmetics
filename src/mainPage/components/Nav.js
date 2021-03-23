@@ -35,8 +35,9 @@ function Nav(props) {
       <Link to="/login">
         <img src={userIcon} className="userIcon" />
       </Link>
-
-      <div id="loginName">name {email} {signUpEmail}</div>
+      <p id="loginName">
+        USER {email} {signUpEmail}
+      </p>
     </nav>
   );
 }

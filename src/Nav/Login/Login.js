@@ -1,9 +1,9 @@
-import React from "react";
 import Form from "../Login/LoginInput";
 import Main from "../../mainPage/components/Main";
 import { auth } from "../..";
 import Nav from "../../mainPage/components/Nav";
 import Footer from "../../mainPage/components/Footer";
+import { useState } from "react";
 
 // firebase
 //   .auth()
@@ -19,76 +19,61 @@ import Footer from "../../mainPage/components/Footer";
 //     // ..
 //   });
 
-class Login extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      email: "",
-      password: "",
-      status: " ",
-      loggedInUser: null,
-      signUpEmail: "",
-      signUpPassword: "",
-      signUpForm: false
-    };
-  }
-  handleEmail = (e) => {
-    this.setState({
-      email: e.target.value,
-    });
+function Login(props) {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [status, setStatus] = useState("");
+  const [loggedInUser, setLoggedInUser] = useState(null);
+  const [signUpEmail, setSignUpEmail] = useState("");
+  const [signUpPassword, setSignUpPassword] = useState("");
+  const [signUpForm, setSignUpForm] = useState(false);
+
+  const handleEmail = (e) => {
+    setEmail(e.target.value);
   };
-  handleSignUpEmail = (e) => {
-    this.setState({
-      signUpEmail: e.target.value,
-    });
+  const handleSignUpEmail = (e) => {
+    setSignUpEmail(e.target.value);
   };
 
-  handlePassword = (e) => {
-    this.setState({
-      password: e.target.value,
-    });
+  const handlePassword = (e) => {
+    setPassword(e.target.value);
   };
-  handleSignUpPassword = (e) => {
-    this.setState({
-      signUpPassword: e.target.value,
-    });
+  const handleSignUpPassword = (e) => {
+    setSignUpPassword(e.target.value);
   };
 
-  handleLogin = (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
-    const { email, password } = this.state;
     auth
       .signInWithEmailAndPassword(email, password)
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        this.setState({
-            loggedInUser: user,
-            status: "succeeded"
-          });
+        setLoggedInUser(user);
+        setStatus("succeeded");
+
         // ...
       })
       .catch((error) => {
         var errorCode = error.code;
         var errorMessage = error.message;
-        console.log(errorCode)
-        console.log(errorMessage)
+        console.log(errorCode);
+        console.log(errorMessage);
       });
   };
 
-
-  onSignupBtnClick = (e) => {
+  const onSignupBtnClick = (e) => {
     e.preventDefault();
-    const { signUpEmail: email, signUpPassword: password } = this.state;
+    //const { signUpEmail: email, signUpPassword: password } = this.state;
     auth
-      .createUserWithEmailAndPassword(email, password)
+      .createUserWithEmailAndPassword(signUpEmail, signUpPassword)
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        this.setState({
-          loggedInUser: user,
-          status: "succeeded"
-        });
+
+        setLoggedInUser(user);
+        setStatus("succeeded");
+
         // ...
       })
       .catch((error) => {
@@ -98,45 +83,41 @@ class Login extends React.Component {
       });
   };
 
-  openSignup = () => {
-    this.setState ({
-        signUpForm: true
-    })
-  }
-
-  logout = () => {
-    auth.logout()
+  const openSignup = () => {
+    setSignUpForm(true);
   };
-  render() {
-    if (this.state.status === "succeeded") {
-      return (
-          <div > 
-          <Nav  email={this.state.email} signUpEmail={this.state.signUpEmail}  logout={this.logout}/>,
-          <Main  />,
-          <Footer />
-          </div>
-      );
-    }
+
+  const logout = () => {
+    auth.logout();
+  };
+  if (status === "succeeded") {
     return (
-      <Form
-        email={this.state.email}
-        signUpEmail={this.state.signUpEmail}
-        password={this.state.password}
-        signUpPassword={this.state.signUpPassword}
-        status={this.state.status}
-        handleEmail={this.handleEmail}
-        handlePassword={this.handlePassword}
-        handleLogin={this.handleLogin}
-        onSignupBtnClick={this.onSignupBtnClick}
-        handleSignUpEmail={this.handleSignUpEmail}
-        handleSignUpPassword={this.handleSignUpPassword}
-        loggedInUser={this.state.loggedInUser}
-        openSignup= {this.openSignup}
-        signUpForm = {this.state.signUpForm}
-        logout={this.logout}
-      />
+      <div>
+        <Nav email={email} signUpEmail={signUpEmail} logout={logout} />,
+        <Main />,
+        <Footer />
+      </div>
     );
   }
+  return (
+    <Form
+      email={email}
+      signUpEmail={signUpEmail}
+      password={password}
+      signUpPassword={signUpPassword}
+      status={status}
+      handleEmail={handleEmail}
+      handlePassword={handlePassword}
+      handleLogin={handleLogin}
+      onSignupBtnClick={onSignupBtnClick}
+      handleSignUpEmail={handleSignUpEmail}
+      handleSignUpPassword={handleSignUpPassword}
+      loggedInUser={loggedInUser}
+      openSignup={openSignup}
+      signUpForm={signUpForm}
+      logout={logout}
+    />
+  );
 }
 
 export default Login;
