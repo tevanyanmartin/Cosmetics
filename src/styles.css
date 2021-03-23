@@ -38,7 +38,8 @@ p:hover {
   opacity: 0.5;
 }
 #mainPicture {
-  height: 1135px;
+  margin-top: 85px;
+  max-height: 1135px;
   width: 100%;
   background: url("https://m.maccosmetics.com/media/export/cms/makeup_services/assets_2019/aptBookingLanding_806x625_v1.jpg");
   background-size: contain;
@@ -89,6 +90,7 @@ footer {
   list-style: none;
   font-size: 20px;
 }
+
 .userIcon {
   height: 26px;
   width: 24px;
@@ -96,7 +98,7 @@ footer {
   border: 1px solid white;
 }
 
-#loginName {
+/* #loginName {
   margin-top: 20px;
   color: white;
-}
+} */
