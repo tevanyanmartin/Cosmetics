@@ -26,6 +26,8 @@ html {
 }
 
 #btn {
-  width: 90px;
+  width: 208px;
   cursor: pointer;
+  display: block;
+  margin-left: 107px;
 }

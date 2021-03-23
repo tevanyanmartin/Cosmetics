@@ -29,6 +29,7 @@ class Login extends React.Component {
       loggedInUser: null,
       signUpEmail: "",
       signUpPassword: "",
+      signUpForm: false
     };
   }
   handleEmail = (e) => {
@@ -97,6 +98,12 @@ class Login extends React.Component {
       });
   };
 
+  openSignup = () => {
+    this.setState ({
+        signUpForm: true
+    })
+  }
+
   logout = () => {
     auth.logout()
   };
@@ -104,7 +111,7 @@ class Login extends React.Component {
     if (this.state.status === "succeeded") {
       return (
           <div > 
-          <Nav  email={this.state.email} logout={this.logout}/>,
+          <Nav  email={this.state.email} signUpEmail={this.state.signUpEmail}  logout={this.logout}/>,
           <Main  />,
           <Footer />
           </div>
@@ -124,6 +131,8 @@ class Login extends React.Component {
         handleSignUpEmail={this.handleSignUpEmail}
         handleSignUpPassword={this.handleSignUpPassword}
         loggedInUser={this.state.loggedInUser}
+        openSignup= {this.openSignup}
+        signUpForm = {this.state.signUpForm}
         logout={this.logout}
       />
     );

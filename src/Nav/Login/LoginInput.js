@@ -17,57 +17,64 @@ class Form extends React.Component {
       onSignupBtnClick,
       handleSignUpEmail,
       handleSignUpPassword,
-      loggedInUser
+      openSignup,
+      signUpForm,
+      loggedInUser,
     } = this.props;
-    
+
+    if (signUpForm) {
+      return (
+        <div className="input">
+          <form onSubmit={onSignupBtnClick}>
+            <h1 className="Lib">Sign up</h1>
+            <input
+              className="inputs"
+              value={signUpEmail}
+              onChange={handleSignUpEmail}
+              placeholder="Enter email"
+            />
+            <input
+              className="inputs"
+              value={signUpPassword}
+              onChange={handleSignUpPassword}
+              placeholder="Enter Password"
+              type="password"
+            />
+            <button id="btn">Sign up</button>
+          </form>
+        </div>
+      );
+    }
+
     return (
       <>
         {status === "succeeded" ? (
           <Main />
         ) : (
-          <>
-            <div className="input">
+          <div className="input">
+            <form onSubmit={handleLogin}>
               <h1 className="Lib">Log in</h1>
-              <form onSubmit={handleLogin}>
-                <input
-                  className="inputs"
-                  value={email}
-                  onChange={handleEmail}
-                  placeholder="Enter email"
-                />
-                <input
-                  className="inputs"
-                  value={password}
-                  onChange={handlePassword}
-                  placeholder="Enter Password"
-                  type="password"
-                />
-                {status === "failed" ? <InvalidData /> : ""}
+              <input
+                className="inputs"
+                value={email}
+                onChange={handleEmail}
+                placeholder="Enter email"
+              />
+              <input
+                className="inputs"
+                value={password}
+                onChange={handlePassword}
+                placeholder="Enter Password"
+                type="password"
+              />
+              {status === "failed" ? <InvalidData /> : ""}
 
-                <button id="btn">Log in</button>
-              </form>
-
-              <h1 className="Lib">Sign up</h1>
-              <form onSubmit={onSignupBtnClick}>
-                <input
-                  className="inputs"
-                  value={signUpEmail}
-                  onChange={handleSignUpEmail}
-                  placeholder="Enter email"
-                />
-                <input
-                  className="inputs"
-                  value={signUpPassword}
-                  onChange={handleSignUpPassword}
-                  placeholder="Enter Password"
-                  type="password"
-                />
-                {status === "failed" ? <InvalidData /> : ""}
-
-                <button id="btn">Sign up</button>
-              </form>
-            </div>
-          </>
+              <button id="btn">Log in</button>
+              <button id="btn" onClick={openSignup}>
+                Create Account
+              </button>
+            </form>
+          </div>
         )}
       </>
     );

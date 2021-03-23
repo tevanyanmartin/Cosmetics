@@ -1,9 +1,10 @@
 import "../../styles.css";
 import React from "react";
 import { Link } from "react-router-dom";
+import userIcon from "../../Pics/user.png";
 
 function Nav(props) {
-  const {email} = props
+  const { email, signUpEmail } = props;
   return (
     <nav className="nav">
       <Link to="/" id="logo"></Link>
@@ -32,10 +33,10 @@ function Nav(props) {
         <p>Brands</p>
       </Link>
       <Link to="/login">
-        <div id="loginLogo">O</div>
+        <img src={userIcon} className="userIcon" />
       </Link>
 
-      <div id="loginName">name {email}</div>
+      <div id="loginName">name {email} {signUpEmail}</div>
     </nav>
   );
 }

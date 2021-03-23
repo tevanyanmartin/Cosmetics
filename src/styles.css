@@ -55,9 +55,10 @@ p:hover {
   padding-left: 40px;
 }
 .logos {
-  height: 30px;
-  width: 30px;
+  height: 31px;
+  width: 31px;
   padding-top: 3px;
+  margin-left: 39px;
 }
 
 .discoverEvenMore {
@@ -89,7 +90,7 @@ footer {
   list-style: none;
   font-size: 20px;
 }
-#loginLogo {
+.userIcon {
   height: 57px;
   width: 24px;
   margin-top: 25px;

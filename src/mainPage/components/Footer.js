@@ -1,5 +1,5 @@
 import "../../styles.css";
-import faceLogo from "../../Pics/facebook-circular-logo.png";
+import faceLogo from "../../Pics/facebook.png";
 import instaLogo from "../../Pics/instagram.png";
 import youtubeLogo from "../../Pics/youtube.png";
 
