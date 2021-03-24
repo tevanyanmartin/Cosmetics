@@ -3,7 +3,7 @@ import Main from "../../mainPage/components/Main";
 import { auth } from "../..";
 import Nav from "../../mainPage/components/Nav";
 import Footer from "../../mainPage/components/Footer";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 // firebase
 //   .auth()
@@ -42,6 +42,12 @@ function Login(props) {
     setSignUpPassword(e.target.value);
   };
 
+  useEffect(() => {
+    auth.onAuthStateChanged(function (user) {
+      setLoggedInUser(user);
+    });
+  });
+
   const handleLogin = (e) => {
     e.preventDefault();
     auth
@@ -49,7 +55,7 @@ function Login(props) {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        setLoggedInUser(user);
+
         setStatus("succeeded");
 
         // ...
@@ -88,8 +94,9 @@ function Login(props) {
   };
 
   const logout = () => {
-    auth.logout();
+    auth.signOut();
   };
+  
   if (status === "succeeded") {
     return (
       <div>

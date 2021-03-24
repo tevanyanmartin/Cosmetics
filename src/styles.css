@@ -6,8 +6,8 @@ html {
   background-color: black;
 }
 #logo {
-  height: 26px;
-  width: 160px;
+  /* height: 26px;
+  width: 160px; */
   background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeJyb86Uv9-hdnoFNRRhcMJTNyuB5YmqybQg&usqp=CAU");
   background-size: contain;
   background-repeat: no-repeat;
@@ -17,10 +17,33 @@ html {
 }
 nav {
   display: flex;
+    position: fixed;
+    background-color: black;
+    height: 75px;
+    width: 107%;
+    margin-left: 16px;
+}
+
+#nav2 {
+  display: flex;
   position: fixed;
   background-color: black;
   height: 75px;
-  width: 100%;
+  width: 107%;
+  margin-left: 16px;
+}
+
+#nav2 p {
+  margin-top: 20px;
+  text-decoration-color: black;
+  padding-top: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  width: 141px;
+  text-transform: uppercase;
+  text-align: center;
+  color: white;
 }
 p {
   margin-top: 20px;
@@ -29,10 +52,14 @@ p {
   cursor: pointer;
   font-size: 18px;
   font-weight: bold;
-  width: 180px;
+  width: 141px;
   text-transform: uppercase;
   text-align: center;
   color: white;
+}
+
+#nav2 p:hover {
+  opacity: 0.5;
 }
 p:hover {
   opacity: 0.5;
@@ -94,9 +121,11 @@ footer {
   width: 24px;
   margin-top: 20px;
   border: 1px solid white;
+  cursor: pointer;
 }
 
 #loginName {
   margin-top: 20px;
-  color: white;
+    color: white;
+    font-size: x-small;
 }
