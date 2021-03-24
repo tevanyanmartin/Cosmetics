@@ -4,6 +4,7 @@ import { auth } from "../..";
 import Nav from "../../mainPage/components/Nav";
 import Footer from "../../mainPage/components/Footer";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 // firebase
 //   .auth()
@@ -99,9 +100,11 @@ function Login(props) {
   if (status === "succeeded") {
     return (
       <div>
+        {/* <Link to="/" id="logo"></Link> */}
         <Nav email={email} signUpEmail={signUpEmail} logout={logout} />,
         <Main />,
         <Footer />
+        
       </div>
     );
   }

@@ -1,6 +1,9 @@
 import InvalidData from "../Login/Invalid";
 import "../Login/LoginStyles.css";
 import Main from "../../mainPage/components/Main";
+import Nav from "../../mainPage/components/Nav";
+import Footer from "../../mainPage/components/Footer";
+import { Link } from "react-router-dom";
 
 
 function Form(props) {
@@ -47,7 +50,7 @@ function Form(props) {
   return (
     <>
       {status === "succeeded" ? (
-        <Main />
+        <Link to="/" id="logo"></Link>
       ) : (
         <div className="input">
           <form onSubmit={handleLogin}>
@@ -77,5 +80,6 @@ function Form(props) {
     </>
   );
 }
+
 
 export default Form;
