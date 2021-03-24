@@ -70,7 +70,6 @@ function Login(props) {
 
   const onSignupBtnClick = (e) => {
     e.preventDefault();
-    //const { signUpEmail: email, signUpPassword: password } = this.state;
     auth
       .createUserWithEmailAndPassword(signUpEmail, signUpPassword)
       .then((userCredential) => {

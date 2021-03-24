@@ -2,6 +2,7 @@ import InvalidData from "../Login/Invalid";
 import "../Login/LoginStyles.css";
 import Main from "../../mainPage/components/Main";
 
+
 function Form(props) {
   const {
     email,
