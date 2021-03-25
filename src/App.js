@@ -1,17 +1,16 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import New from "./Nav/New";
-import Lips from "./Nav/Lips";
-import Face from "./Nav/Face";
-import Eyes from "./Nav/Eyes";
-import Brushes from "./Nav/Brushes";
-import Skin from "./Nav/Skin";
-import BestSellers from "./Nav/BestSellers";
-import Brands from "./Nav/Brands";
-
-import Nav from "./mainPage/components/Nav";
-import Main from "./mainPage/components/Main";
-import Footer from "./mainPage/components/Footer";
-import Login from "./Nav/Login/Login";
+import New from "./component/section/New";
+import Lips from "./component/section/Lips";
+import Face from "./component/section/Face";
+import Eyes from "./component/section/Eyes";
+import Brushes from "./component/section/Brushes";
+import Skin from "./component/section/Skin";
+import BestSellers from "./component/section/BestSellers";
+import Brands from "./component/section/Brands";
+import Nav from "./component/menu/Nav";
+import Main from "./component/section/Main";
+import Footer from "./component/section/Footer";
+import Login from "./component/menu/Login";
 // import Form from "./Nav/Login/LoginInput";
 
 export default function App() {
@@ -21,7 +20,7 @@ export default function App() {
         <Switch>
           <Route path="/new">
             <Nav />
-            <New />
+            <New  />
             <Footer />
           </Route>
           <Route path="/lips">
@@ -72,3 +71,4 @@ export default function App() {
     </>
   );
 }
+
