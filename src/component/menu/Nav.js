@@ -38,7 +38,7 @@ function Nav(props) {
 
     manuUserSeting = <span onClick={handleToggle} id='profile-items' className='profile-items-span'>{email} </span>
   } else {
-    manuUserSeting = <span onClick={handleToggle} id='profile-items' className='profile-items-span' >My accaunt</span>
+    manuUserSeting = <span onClick={handleToggle} id='profile-items' className='profile-items-span' >My account</span>
   }
   const history = useHistory()
   const kkk = () => {
