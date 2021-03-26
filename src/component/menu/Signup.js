@@ -4,9 +4,7 @@ import unKnown from '../../Pics/unknown.jpg'
 import pLogo from '../../Pics/pink-logo.png'
 import { db, auth } from '../../index'
 import { useHistory } from "react-router-dom";
-import { useCookies } from 'react-cookie';
 const Signup = () => {
-    const [cookies, setCookie] = useCookies(['username', 'userImage']);
     const history = useHistory()
     const [choosen, setChoose] = useState(unKnown)
     const [values, setValues] = useState({
@@ -25,12 +23,9 @@ const Signup = () => {
     let inputChange = { ...values }
     const handleImgChange = (e) => {
         const file = e.target.files[0]
-
-        console.log(file)
         if (!file) {
             return
         } else if (file.size >= 80000) {
-            console.log(file.size)
             inputChange.sizeErrorMessage = 'the size of the painting is large. choose less'
         } else {
             inputChange.sizeErrorMessage = ''
@@ -68,10 +63,7 @@ const Signup = () => {
                     .then((docRef) => {
                         inputChange.errorMessage = '';
                         setValues(inputChange)
-                        setCookie('username', inputChange.username, { path: '/' })
-                        setCookie('userImage', (choosen.previewImgUrl ? choosen.previewImgUrl : unKnown), { path: '/' })
                         history.push('/')
-                        console.log("Document written with ID: ", docRef.id);
                     })
                     .catch((error) => {
                         inputChange.errorMessage = error.message;
@@ -86,7 +78,6 @@ const Signup = () => {
 
 
     }
-    console.log(values.errorMessage, values.errorCode)
     return (
         <>
             <div className='login-main'>

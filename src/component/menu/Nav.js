@@ -1,11 +1,11 @@
 // import "../../styles/styles.css";
 import '../../styles/nav.css'
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Link } from "react-router-dom";
 import wLogo from "../../Pics/white-logo.png";
 import Navmodules from './Navmodules'
-import { useCookies } from 'react-cookie';
 import { useHistory } from "react-router-dom";
+import { auth } from '../../index'
 function Nav(props) {
   const [displayNone, setDisplay] = useState('none')
   const handleToggle = (e) => {
@@ -17,16 +17,32 @@ function Nav(props) {
 
   }
 
-  const [cookies] = useCookies(['username', 'userImage']);
+  var user = auth.currentUser;
+  var name, email, photoUrl, uid, emailVerified;
+  if (user != null) {
+    name = user.displayName;
+    email = user.email;
+    photoUrl = user.photoURL;
+    emailVerified = user.emailVerified;
+    uid = user.uid;
+  }
+ 
+ console.log(name, email, photoUrl, uid, emailVerified)
+ 
+
+ 
+
   let manuUserSeting;
-  if (cookies.username) {
-    manuUserSeting = <span onClick={handleToggle} id='profile-items' className='profile-items-span'>{cookies.username} </span>
+
+  if (email) {
+
+    manuUserSeting = <span onClick={handleToggle} id='profile-items' className='profile-items-span'>{email} </span>
   } else {
     manuUserSeting = <span onClick={handleToggle} id='profile-items' className='profile-items-span' >My accaunt</span>
   }
   const history = useHistory()
   const kkk = () => {
-    
+
     history.push('/eyes')
     return (
       <h1> heeelloooo neeeww</h1>
@@ -74,7 +90,7 @@ function Nav(props) {
               {manuUserSeting}
             </div>
           </div>
-          <Navmodules changeProfileDisplay={displayNone} handleToggle={handleToggle} cookie={cookies} />
+          <Navmodules changeProfileDisplay={displayNone} handleToggle={handleToggle} />
         </div>
 
       </div>
