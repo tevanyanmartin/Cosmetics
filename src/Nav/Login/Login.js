@@ -1,10 +1,13 @@
 import Form from "../Login/LoginInput";
 import Main from "../../mainPage/components/Main";
-import { auth } from "../..";
+import { auth, db } from "../..";
 import Nav from "../../mainPage/components/Nav";
 import Footer from "../../mainPage/components/Footer";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { selectLoggedInUser } from "../../selectors/auth";
+import { setLoggedInUser } from "../../actions/auth";
 
 // firebase
 //   .auth()
@@ -18,13 +21,14 @@ import { Link } from "react-router-dom";
 //     var errorCode = error.code;
 //     var errorMessage = error.message;
 //     // ..
-//   });
+// });
 
 function Login(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [status, setStatus] = useState("");
-  const [loggedInUser, setLoggedInUser] = useState(null);
+  const loggedInUser = useSelector(selectLoggedInUser)
+  const dispatch = useDispatch()
   const [signUpEmail, setSignUpEmail] = useState("");
   const [signUpPassword, setSignUpPassword] = useState("");
   const [signUpForm, setSignUpForm] = useState(false);
@@ -45,9 +49,21 @@ function Login(props) {
 
   useEffect(() => {
     auth.onAuthStateChanged(function (user) {
-      setLoggedInUser(user);
+      if (user) {
+        const currentUserRef = db.collection("users").doc(user.uid)
+        currentUserRef.get().then((userInfo) => {
+          console.log(userInfo)
+          dispatch(setLoggedInUser({
+            ...user,
+            ...userInfo.data()
+          }))
+        })
+      } else {
+        dispatch(setLoggedInUser(user))
+      }
+      
     });
-  });
+  }, []);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -76,8 +92,8 @@ function Login(props) {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
+        db.collection("users").doc(userCredential.user.id).set({firstName: "asd"})
 
-        setLoggedInUser(user);
         setStatus("succeeded");
 
         // ...
@@ -100,7 +116,7 @@ function Login(props) {
   if (status === "succeeded") {
     return (
       <div>
-        {/* <Link to="/" id="logo"></Link> */}
+        <Link to="/" id="logo"></Link>
         <Nav email={email} signUpEmail={signUpEmail} logout={logout} />,
         <Main />,
         <Footer />

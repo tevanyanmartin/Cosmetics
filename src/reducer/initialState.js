@@ -1,6 +1,5 @@
 const initialState = {
-  fireStore: null,
-  firebaseAuth: null
+  loggedInUser: null
 };
 
 export default initialState;

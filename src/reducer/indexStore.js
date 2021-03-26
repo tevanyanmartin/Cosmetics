@@ -6,7 +6,8 @@ import reducer from "../reducer/reducer";
 // const logger = createLogger();
 
 const store = createStore(
-  reducer
+  reducer,
+   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   //   composeWithDevTools(applyMiddleware(logger))
 );
 

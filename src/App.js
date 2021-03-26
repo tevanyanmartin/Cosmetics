@@ -12,6 +12,7 @@ import Nav from "./mainPage/components/Nav";
 import Main from "./mainPage/components/Main";
 import Footer from "./mainPage/components/Footer";
 import Login from "./Nav/Login/Login";
+import Form from "./Nav/Login/LoginInput"
 // import Form from "./Nav/Login/LoginInput";
 
 export default function App() {

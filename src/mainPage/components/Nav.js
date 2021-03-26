@@ -22,7 +22,7 @@ function Nav(props) {
       </Link>
       <Link to="/eyes">
         <p>Eyes</p>
-      </Link>
+      </Link> 
       <Link to="/brushes">
         <p>Brushes</p>
       </Link>
@@ -49,7 +49,7 @@ function Nav(props) {
 
 
   return (
-    <nav className="nav2">
+    <nav className="nav">
       <Link to="/" id="logo"></Link>
       <Link to="/new">
         <p>New</p>
