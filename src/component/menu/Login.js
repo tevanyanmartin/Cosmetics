@@ -1,3 +1,91 @@
+import '../../styles/login.css'
+import React, { useEffect, useState } from 'react'
+import pLogo from '../../Pics/pink-logo.png'
+import { useHistory } from "react-router-dom";
+import { db, auth } from '../../index'
+const Login = (props) => {
+
+  const history = useHistory()
+  const [values, setValues] = useState({
+    email: "",
+    password: "",
+    errorMessage: "",
+    errorCode: ''
+  });
+  // const dispatch = useDispatch()
+  let submitNewValues = { ...values }
+
+  const handleChange = (e) => {
+    if (e.target.type === 'email') {
+      submitNewValues.email = e.target.value
+    } else if (e.target.type === 'password') {
+      submitNewValues.password = e.target.value
+    }
+    setValues(submitNewValues)
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    auth.signInWithEmailAndPassword(values.email, values.password)
+      .then((userCredential) => {
+        var user = userCredential.user;
+        // 
+       
+        db.collection("users").get().then((querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+            if (user.uid === doc.data().uid) {
+              submitNewValues.errorMessage = ' ' 
+              
+              history.push('/')
+            }
+          });
+        });
+      })
+      .catch((error) => {
+        submitNewValues.errorCode = error.code;
+        submitNewValues.errorMessage = error.message;
+        setValues(submitNewValues)
+        console.log(error.code, error.message)
+      });
+  }
+  console.log(values)
+
+
+  return (
+    <>
+      <div className='login-main'>
+        <div className='login-container'>
+          <div className='login-logo'>
+            <div className='logo'>
+              <span><img src={pLogo} alt={pLogo} /></span>
+            </div>
+          </div>
+          <div className='login-form'>
+            <div className='form'>
+              <form onSubmit={handleSubmit}>
+                <input type='email' value={values.email} onChange={handleChange} placeholder='E-mail' required />
+                <input type='password' value={values.password} onChange={handleChange} placeholder='Password' required />
+                <span className='error-meassage'>{(values.errorMessage ? values.errorMessage : '')}</span>
+                <input className='submit' type='submit' value='LOG IN' />
+              </form>
+            </div>
+          </div>
+          <div className='in-login-create-newAcc-btn'>
+            <div className='create-newAcc-btn'>
+              <a href='/signup'>Register A Account</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  )
+}
+
+export default Login
+
+
+
+
 // import Form from "./LoginInput";
 // import Main from "../section/Main";
 // import { auth } from "../../index";
@@ -132,99 +220,3 @@
 //     />
 //   );
 // }
-
-// export default Login;
-import '../../styles/login.css'
-import React, { useState } from 'react'
-import pLogo from '../../Pics/pink-logo.png'
-import { useHistory } from "react-router-dom";
-import { useCookies } from 'react-cookie';
-import { db, auth } from '../../index'
-const Login = (props) => {
-  const history = useHistory()
-  const [values, setValues] = useState({
-    email: "",
-    password: "",
-    errorMessage: "",
-    errorCode: ''
-  });
-  const [cookies, setCookie] = useCookies(['username', 'userImage']);
-  // const dispatch = useDispatch()
-  // const changeNewValues = { ...values }
-  const submitNewValues = { ...values }
-  const handleChange = (e) => {
-
-    if (e.target.type === 'email') {
-      submitNewValues.email = e.target.value
-    } else if (e.target.type === 'password') {
-      submitNewValues.password = e.target.value
-    }
-    setValues(submitNewValues)
-  }
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    auth.signInWithEmailAndPassword(values.email, values.password)
-      .then((userCredential) => {
-        // Signed in
-        var user = userCredential.user;
-        console.log(user, userCredential)
-        db.collection("users").get().then((querySnapshot) => {
-          querySnapshot.forEach((doc) => {
-            if (user.uid === doc.data().uid) {
-              submitNewValues.errorMessage = ' '
-              setCookie('username', doc.data().username, { path: '/' })
-              setCookie('userImage', doc.data().image, { path: '/' })
-              // console.log(doc.data().image,doc.data().username)
-              console.log(doc.data().id)
-              history.push('/')
-              // console.log(doc.data())
-            }
-          });
-        });
-      })
-      .catch((error) => {
-        submitNewValues.errorCode = error.code;
-        submitNewValues.errorMessage = error.message;
-        setValues(submitNewValues)
-        console.log(error.code, error.message)
-      });
-
-    setValues(submitNewValues)
-
-  }
-  // console.log(cookies)
-
-  // console.log(values.errorCode,values.errorMessage)
-
-  return (
-    <>
-      <div className='login-main'>
-        <div className='login-container'>
-          <div className='login-logo'>
-            <div className='logo'>
-              <span><img src={pLogo} alt={pLogo} /><p>ART</p></span>
-            </div>
-          </div>
-          <div className='login-form'>
-            <div className='form'>
-              <form onSubmit={handleSubmit}>
-                <input type='email' value={values.email} onChange={handleChange} placeholder='E-mail' required />
-                <input type='password' value={values.password} onChange={handleChange} placeholder='Password' required />
-                <span className='error-meassage'>{(values.errorMessage ? values.errorMessage : '')}</span>
-                <input className='submit' type='submit' value='LOG IN' />
-              </form>
-            </div>
-          </div>
-          <div className='in-login-create-newAcc-btn'>
-            <div className='create-newAcc-btn'>
-              <a href='/signup'>Register A Account</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
-  )
-}
-
-export default Login
