@@ -2,17 +2,37 @@ import "../../styles/styles.css";
 import faceLogo from "../../Pics/icons/facebook.png";
 import instaLogo from "../../Pics/icons/instagram.png";
 import youtubeLogo from "../../Pics/icons/youtube.png";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
     <footer style={{ display: "flex", justifyContent: "center" }}>
       <div style={{ margin: "50px 150px 50px 150px" }}>
         <h2 style={{ color: "white" }}>PRODUCTS</h2>
-        <li className="footerItem">Lips</li>
-        <li className="footerItem">Face</li>
-        <li className="footerItem">Eyes</li>
-        <li className="footerItem">Brushes</li>
-        <li className="footerItem">Skin</li>
+        <Link to="/brands/burberry">
+          <li className="footerItem">Burberry</li>
+        </Link>
+        <Link to="/brands/esteeLauder">
+          <li className="footerItem">Estee Lauder</li>
+        </Link>
+        <Link to="/brands/dior">
+          <li className="footerItem">Dior</li>
+        </Link>
+        <Link to="/brands/kylie">
+          <li className="footerItem">Kylie</li>
+        </Link>
+        <Link to="/brands/KKW">
+          {" "}
+          <li className="footerItem">KKW</li>
+        </Link>
+        <Link to="/brands/Mac">
+          {" "}
+          <li className="footerItem">Mac</li>
+        </Link>
+        <Link to="/brands/clinique">
+          {" "}
+          <li className="footerItem">Clinique</li>
+        </Link>
       </div>
 
       <div style={{ margin: "50px 150px 50px 150px" }}>

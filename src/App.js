@@ -20,7 +20,7 @@ export default function App() {
         <Switch>
           <Route path="/new">
             <Nav />
-            <New  />
+            <New />
             <Footer />
           </Route>
           <Route path="/lips">
@@ -71,4 +71,3 @@ export default function App() {
     </>
   );
 }
-
