@@ -51,10 +51,10 @@ const Signup = () => {
         e.preventDefault()
         auth.createUserWithEmailAndPassword(values.email, values.password)
             .then((userCredential) => {
-                var user = userCredential.user;
+                let user = userCredential.user;
                 console.log(user.uid)
-                db.collection("users").add({
-                    uid: user.uid,
+                db.collection("users").doc(user.uid).set({
+                    // uid: user.uid,
                     username: inputChange.username,
                     email: inputChange.email,
                     image: (choosen.previewImgUrl ? choosen.previewImgUrl : unKnown),
