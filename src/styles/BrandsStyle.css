@@ -1,6 +1,6 @@
 #Clinique {
   margin: 10px;
-  margin-top: 70px;
+
   background: url("https://static.turbosquid.com/Preview/001185/881/H5/3D-cosmetics-clinique_0.jpg");
   height: 500px;
   width: 500px;
@@ -110,45 +110,10 @@
   font-size: 90px;
   color: white;
 }
-#Chanel {
-  margin: 10px;
-  background: url("https://ar.vogue.me/image_provider/?w=750&h=&zc=1&q=80&cc=ffffff&src=https://en.vogue.me/wp-content/uploads/2020/01/MA2019_01_0081_CMYK-1.jpg");
-  height: 500px;
-  width: 500px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  text-align: center;
-  cursor: pointer;
-}
-#Chanel:hover {
-  opacity: 0.6;
-}
-#Chanel:hover:after {
-  content: "CHANEL Products";
-  font-size: 90px;
-  color: white;
-}
-#Hermes {
-  margin: 10px;
-  background: url("https://cdn.vanmiubeauty.com/wp-content/uploads/2020/02/Herm%C3%A8s-ra-son-m%C3%B4i-v%E1%BB%8F-cute-v%C3%B4-%C4%91%E1%BB%91i-24-m%C3%A0u.jpg");
-  height: 500px;
-  width: 500px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  text-align: center;
-  cursor: pointer;
-}
-#Hermes:hover {
-  opacity: 0.6;
-}
-#Hermes:hover:after {
-  content: "HERMES Products";
-  font-size: 90px;
-  color: white;
-}
 
 #Burberry {
   margin: 10px;
+  margin-top: 70px;
   background: url("https://i.pinimg.com/originals/28/dd/fc/28ddfc7ec2166463af493a3c0e287da1.jpg");
   background-position: 30% 30%;
   height: 500px;
@@ -163,25 +128,6 @@
 }
 #Burberry:hover:after {
   content: "Burberry Products";
-  font-size: 90px;
-  color: white;
-}
-#Nars {
-  margin: 10px;
-  background: url("https://blogscdn.thehut.net/wp-content/uploads/sites/2/2016/07/26174837/1200x672-lf-wk30-cg-Group-shot-v2.jpg");
-  background-position: 40% 40%;
-  height: 500px;
-  width: 500px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  text-align: center;
-  cursor: pointer;
-}
-#Nars:hover {
-  opacity: 0.6;
-}
-#Nars:hover:after {
-  content: "Nars Beauty";
   font-size: 90px;
   color: white;
 }

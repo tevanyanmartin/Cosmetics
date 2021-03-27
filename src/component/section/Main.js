@@ -8,15 +8,13 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function Main() {
   return (
-    <Router>
-      <Switch>
-        <Route path="/">
-          <Header />
-          <CarouselPrint />
-          <DiscoverEvenMore />
-        </Route>
-      </Switch>
-    </Router>
+    <Switch>
+      <Route path="/">
+        <Header />
+        <CarouselPrint />
+        <DiscoverEvenMore />
+      </Route>
+    </Switch>
   );
 }
 
