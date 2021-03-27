@@ -30,15 +30,15 @@ const Login = (props) => {
       .then((userCredential) => {
         var user = userCredential.user;
         // 
-       
-        db.collection("users").get().then((querySnapshot) => {
-          querySnapshot.forEach((doc) => {
-            if (user.uid === doc.data().uid) {
+        console.log(user.uid)
+        db.collection("users").get(user.uid).then((querySnapshot) => {
+          // querySnapshot.forEach((doc) => {
+            // if (user.uid === doc.data().uid) {
               submitNewValues.errorMessage = ' ' 
               
               history.push('/')
-            }
-          });
+            // }
+          // });
         });
       })
       .catch((error) => {

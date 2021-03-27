@@ -50,6 +50,7 @@ function Nav(props) {
 
   }
   return (
+
       <div className='page-navigation'>
         <div className='page-container'>
           <div className='navbar-mobile'></div>
@@ -92,6 +93,7 @@ function Nav(props) {
         </div>
 
       </div>
+
   )
 }
 export default Nav;
