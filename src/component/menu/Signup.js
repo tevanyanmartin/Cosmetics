@@ -51,7 +51,7 @@ const Signup = () => {
         e.preventDefault()
         auth.createUserWithEmailAndPassword(values.email, values.password)
             .then((userCredential) => {
-                var user = userCredential.user;
+                const user = userCredential.user;
                 console.log(user.uid)
                 db.collection("users").add({
                     uid: user.uid,
