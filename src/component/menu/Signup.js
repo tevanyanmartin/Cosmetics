@@ -17,7 +17,7 @@ const Signup = () => {
     });
     const generatePreviewImgUrl = (file, callback) => {
         const reader = new FileReader()
-        const url = reader.readAsDataURL(file)
+        reader.readAsDataURL(file)
         reader.onloadend = e => callback(reader.result)
     }
     let inputChange = { ...values }
@@ -52,7 +52,6 @@ const Signup = () => {
         auth.createUserWithEmailAndPassword(values.email, values.password)
             .then((userCredential) => {
                 let user = userCredential.user;
-                console.log(user.uid)
                 db.collection("users").doc(user.uid).set({
                     // uid: user.uid,
                     username: inputChange.username,
