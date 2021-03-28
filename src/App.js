@@ -11,6 +11,7 @@ import Nav from "./component/menu/Nav";
 import Main from "./component/section/Main";
 import Footer from "./component/section/Footer";
 import Login from "./component/menu/Login";
+import Signup from "./component/menu/Signup";
 // import Form from "./Nav/Login/LoginInput";
 
 export default function App() {
@@ -60,6 +61,9 @@ export default function App() {
           </Route>
           <Route path="/login">
             <Login />
+          </Route>
+          <Route path="/Signup">
+            <Signup/>
           </Route>
           <Route path="/">
             <Nav />
