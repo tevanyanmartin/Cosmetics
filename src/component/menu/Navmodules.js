@@ -1,4 +1,3 @@
-
 import '../../styles/navModules.css'
 import React, { useState } from 'react'
 import addUserIcon from '../../Pics/icons/addUser.png'
