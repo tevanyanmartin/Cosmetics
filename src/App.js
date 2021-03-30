@@ -66,7 +66,12 @@ export default function App() {
           <Route path="/login">
             <Login />
           </Route>
-          <Route path="/">
+          <Route exact path="/home">
+            <Nav />
+            <Main />
+            <Footer />
+          </Route>
+          <Route exact path="/">
             <Nav />
             <Main />
             <Footer />
