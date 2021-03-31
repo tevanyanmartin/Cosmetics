@@ -1,3 +1,4 @@
+
 import '../../styles/navModules.css'
 import React, { useState } from 'react'
 import addUserIcon from '../../Pics/icons/addUser.png'
@@ -28,14 +29,19 @@ const NavModules = (props) => {
             <img src={addUserIcon} alt="img" />
           </span>
           <Link id="createAccountButtonLink" to="signup">Create New Account</Link>
+
+
         </div>
       </div>
-    </div>
-  } return (
+    );
+  }
+  return (
     <>
       <div onClick={handleToggle} style={{ display: (changeProfileDisplay ? "block" : "none") }} className="close-dropDown"></div>
       {navUserSetting}
     </>
   );
 };
+
 export default NavModules;
+

@@ -1,4 +1,9 @@
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect
+} from "react-router-dom";
 import New from "./component/section/New";
 import Lips from "./component/section/Lips";
 import Face from "./component/section/Face";
@@ -62,6 +67,7 @@ export default function App() {
           <Route path="/login">
             <Login />
           </Route>
+
           <Route path="/Signup">
             <Signup/>
           </Route>
@@ -69,6 +75,12 @@ export default function App() {
             <Nav />
             <Main />
             <Footer />
+          </Route>
+          <Route exact path="/">
+            <Nav />
+            <Main />
+            <Footer />
+            <Redirect to="/" />
           </Route>
         </Switch>
       </Router>

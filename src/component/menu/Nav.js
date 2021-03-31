@@ -1,3 +1,4 @@
+
 import '../../styles/nav.css'
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
@@ -42,13 +43,15 @@ function Nav() {
           <div className='profile-items'>
             <span onClick={handleToggle} id='profile-items' className='profile-items-span'>{(email ? email : 'My account')} </span>
 
+
           </div>
+          <div className="profile-items">{manuUserSeting}</div>
         </div>
+
         <NavModules changeProfileDisplay={displayNone} handleToggle={handleToggle} userImg={userImg} email={email} uid={uid}/>
+
       </div>
-
     </div>
-
-  )
+  );
 }
 export default Nav;
